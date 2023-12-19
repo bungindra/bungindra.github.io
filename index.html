@@ -1,36 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Portofolio Kerja</title>
 </head>
+
 <body>
-    <header>
-        <h1>Nama Anda</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">Tentang Saya</a></li>
-                <li><a href="#portfolio">Portofolio</a></li>
-                <li><a href="#contact">Kontak</a></li>
-            </ul>
-        </nav>
-    </header>
+    <script>
+        function copyText() {
+            // Dapatkan nilai dari setiap elemen input
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
 
-    <section id="about">
-        <h2>Tentang Saya</h2>
-        <p>Tuliskan deskripsi singkat tentang diri Anda di sini.</p>
-    </section>
+            // Hasilkan format yang diinginkan
+            var formattedText = `
+FORM CLOSE
+\n=========
+\nAR               : 23121408257
+\nSID              : -
+\nNo hp user: +6281334090323
+\nNama         : ARIF SUPRAMONO
+\nTanggal      : 19 DESEMBER 2023
+\nMasalah     : Redti Pigtail ketekuk di ont
+\nAction        :  Perapihan kabel
+\nKode FAT   : KPNA10671
+\nONT            : ZTE
+\nTikor user  : -7.846391,112.698766
+\nAlamat       : JL. SUMBER SEKAR GG. KENANGA 367 RT4 RW5
+\n=========
+\nWaktu Open : 9.25
+\nWaktu Start  : 18.06
+\nWaktu close  :  18.17
+\n=========
+\nMATERIAL 
+\nPS            : 
+\nPathcord: 
+\nPigtail     : 
+\nDC           : 
+\nONT        :
+\nKonektor: 
+\nSplitter   : 
+\n=========
+\nREPLACE ONT 
+\nSN LAMA   : 
+\nMAC LAMA: 
+\nFAT LAMA : 
+\nSN BARU   : 
+\nMAC BARU  : 
+\nFAT BARU  : 
+\n===================
+\nPetugas      : IKR MALANG 1
+\n  1. ADE MAS GHOZI
+\n  2. INDRA IKR
+            Nama: ${name}\nEmail: ${email}`;
 
-    <section id="portfolio">
-        <h2>Portofolio</h2>
-        <!-- Tambahkan daftar proyek Anda di sini -->
-    </section>
+            // Salin teks ke clipboard
+            copyToClipboard(formattedText);
+        }
+        function copyToClipboard(text) {
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    </script>
+    <form id="myForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" name="name">
 
-    <section id="contact">
-        <h2>Kontak</h2>
-        <p>Email: email@contoh.com</p>
-    </section>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+
+        <!-- Tambahkan elemen input sesuai kebutuhan -->
+
+        <button type="button" onclick="copyText()">Copy Text</button>
+    </form>
 </body>
+
 </html>
