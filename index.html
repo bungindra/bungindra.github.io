@@ -5,15 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Portofolio Kerja</title>
+    <title>CRUD Website</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+
 </head>
 
 <body>
+    <form id="dataForm">
+        <label for="name">Nama:</label>
+        <input type="text" id="name" required>
+
+        <!-- Tambahkan elemen input sesuai kebutuhan -->
+
+        <button type="button" onclick="createData()">Tambah</button>
+        <button type="button" onclick="readData()">Baca</button>
+        <button type="button" onclick="updateData()">Perbarui</button>
+        <button type="button" onclick="deleteData()">Hapus</button>
+    </form>
+
     <script>
         function copyText() {
             // Dapatkan nilai dari setiap elemen input
-            var name = document.getElementById('name').value;
-            var email = document.getElementById('email').value;
+
+            // var name = document.getElementById('name').value;
+            // var email = document.getElementById('email').value;
 
             // Hasilkan format yang diinginkan
             var formattedText = `
@@ -33,7 +49,7 @@ Alamat       : JL. SUMBER SEKAR GG. KENANGA 367 RT4 RW5
 =========
 Waktu Open : 9.25
 Waktu Start  : 18.06
-Waktu close  :  18.17
+Waktu close :  18.17
 =========
 MATERIAL 
 PS            : 
@@ -55,10 +71,13 @@ FAT BARU  :
 Petugas      : IKR MALANG 1
   1. ADE MAS GHOZI
   2. INDRA IKR
-            Nama: ${name}\nEmail: ${email}`;
+            
+  
+  
+  Nama: ${name}\nEmail: ${email}`;
 
             // Salin teks ke clipboard
-            copyToClipboard(formattedText);
+            //   copyToClipboard(formattedText);
         }
         function copyToClipboard(text) {
             var textarea = document.createElement('textarea');
@@ -68,6 +87,11 @@ Petugas      : IKR MALANG 1
             document.execCommand('copy');
             document.body.removeChild(textarea);
         }
+
+        function copyText2(text){
+            text = process.env.API_KEY;
+        }
+
     </script>
     <form id="myForm">
         <label for="name">Nama:</label>
@@ -79,6 +103,7 @@ Petugas      : IKR MALANG 1
         <!-- Tambahkan elemen input sesuai kebutuhan -->
 
         <button type="button" onclick="copyText()">Copy Text</button>
+        <button type="button" onclick="copyText2()">API KEY</button>
     </form>
 </body>
 
